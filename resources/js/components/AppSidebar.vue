@@ -30,11 +30,11 @@ const mainNavItems: NavItem[] = [
         href: project(),
         icon: Folder,
     },
-    {
-        title: 'Task',
-        href: task(),
-        icon: List,
-    },
+    // {
+    //     title: 'Task',
+    //     href: task(),
+    //     icon: List,
+    // },
 ];
 
 const footerNavItems: NavItem[] = [
