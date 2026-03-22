@@ -138,6 +138,7 @@ const OpenEditTaskDialog = (task: {
 
 const createTask = () => {
     createTaskForm.post('/project/task', {
+        preserveScroll: true,
         onSuccess: () => {
             createTaskForm.reset();
             createTaskDialogOpen.value = false;
@@ -145,11 +146,17 @@ const createTask = () => {
                 toast.success(page.props.flash.success);
             }
         },
+        onError: (errors) => {
+            for (const key in errors) {
+                toast.error(errors[key]);
+            }
+        },
     });
 };
 
 const editTask = () => {
     editTaskForm.put(`/project/task/update/${currentTaskId.value}`, {
+        preserveScroll: true,
         onSuccess: () => {
             editTaskDialogOpen.value = false;
             editTaskForm.reset();
@@ -160,11 +167,17 @@ const editTask = () => {
 
             // router.reload({ only: ['projects'] });
         },
+        onError: (errors) => {
+            for (const key in errors) {
+                toast.error(errors[key]);
+            }
+        },
     });
 };
 
 const completeTask = (taskId) => {
     completeTaskForm.put(`/project/task/complete_task/${taskId}`, {
+        preserveScroll: true,
         onSuccess: () => {
             // editTaskDialogOpen.value = false;
             // completeTaskForm.reset();
@@ -179,6 +192,7 @@ const completeTask = (taskId) => {
 
 const deleteTask = (taskId: number, projectId: number) => {
     router.delete(`/project/task/${projectId}/${taskId}`, {
+        preserveScroll: true,
         onSuccess: () => {
             router.reload({ only: ['projects', 'projectTaskCount'] });
         },
@@ -254,10 +268,11 @@ const breadcrumbs: BreadcrumbItem[] = [
                             </div>
 
                             <div class="mt-4 flex justify-end">
-                                <Button type="submit">
-                                    <Plus class="h-4 w-4" />
-                                    Add</Button
-                                >
+                                <Button type="submit" :disabled="createTaskForm.processing">
+                                    <Loader2 v-if="createTaskForm.processing" class="mr-2 h-4 w-4 animate-spin" />
+                                    <Plus v-else class="mr-2 h-4 w-4" />
+                                    Add
+                                </Button>
                             </div>
                         </form>
                     </DialogContent>
@@ -277,7 +292,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 
                         <form
                             class="space-y-4"
-                            @submit.prevent="editTask(currentTaskId!)"
+                            @submit.prevent="editTask()"
                         >
                             <div class="space-y-2">
                                 <Label>Task</Label>
@@ -303,10 +318,11 @@ const breadcrumbs: BreadcrumbItem[] = [
                             </div>
 
                             <div class="mt-4 flex justify-end">
-                                <Button type="submit">
-                                    <Plus class="h-4 w-4" />
-                                    Add</Button
-                                >
+                                <Button type="submit" :disabled="editTaskForm.processing">
+                                    <Loader2 v-if="editTaskForm.processing" class="mr-2 h-4 w-4 animate-spin" />
+                                    <Plus v-else class="mr-2 h-4 w-4" />
+                                    Save
+                                </Button>
                             </div>
                         </form>
                     </DialogContent>

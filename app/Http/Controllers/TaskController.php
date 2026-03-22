@@ -7,6 +7,7 @@ use App\Models\TaskModel;
 use Exception;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Validation\Rule;
 
 class TaskController extends Controller
 {
@@ -31,10 +32,19 @@ class TaskController extends Controller
     {
         // dd($request->all());
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('task', 'title')->where(function ($query) use ($request) {
+                    return $query->where('project_id', $request->project_id);
+                })
+            ],
             'project_id' => 'required|exists:project,id',
             'priority' => 'required|string|in:High,Normal,Low',
             'completed' => 'required|boolean',
+        ], [
+            'title.unique' => 'The task already has this task'
         ]);
 
         TaskModel::create($validatedData);
@@ -49,15 +59,24 @@ class TaskController extends Controller
         $task = TaskModel::findOrFail($id);
 
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('task', 'title')->where(function ($query) use ($request) {
+                    return $query->where('project_id', $request->project_id);
+                })->ignore($id)
+            ],
             'project_id' => 'required|exists:project,id',
             'priority' => 'required|string|in:High,Normal,Low',
             'completed' => 'required|boolean',
+        ], [
+            'title.unique' => 'already has task'
         ]);
 
         $task->update($validatedData);
 
-        return redirect()->route('project.tasks', ['id' => $validatedData['project_id']])->with('success', 'Task created successfully.');
+        return back()->with('success', 'Task updated successfully.');
     }
 
     public function taskComplete($id, Request $request)
@@ -70,9 +89,7 @@ class TaskController extends Controller
 
         $task->save();
 
-        return redirect()
-            ->route('project.tasks', ['id' => $task->project_id])
-            ->with('success', 'Task updated successfully.');
+        return back()->with('success', 'Task updated successfully.');
     }
 
     public function deleteTask($projectId, $taskId)
@@ -81,9 +98,9 @@ class TaskController extends Controller
             $task = TaskModel::findOrFail($taskId);
             $task->delete();
 
-            return redirect()->route('project.tasks', ['id' => $projectId])->with('success', 'Task deleted successfully.');
+            return back()->with('success', 'Task deleted successfully.');
         } catch (Exception $e) {
-            return redirect()->route('project')->with('error', 'Error: Could not delete the record.');
+            return back()->with('error', 'Error: Could not delete the record.');
         }
     }
 }
