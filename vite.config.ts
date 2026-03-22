@@ -21,10 +21,9 @@ export default defineConfig(({ mode }) => ({
             },
         }),
 
-        // ✅ ONLY run in development
-        mode === 'development' &&
-            wayfinder({
-                formVariants: true,
-            }),
+        // ✅ Run in all environments
+        wayfinder({
+            formVariants: true,
+        }),
     ].filter(Boolean), // important: removes false
 }));
