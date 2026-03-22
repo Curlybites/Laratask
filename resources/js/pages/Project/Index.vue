@@ -47,7 +47,7 @@ import { watch } from 'vue'
 import { Badge } from '@/components/ui/badge'
 
 
-const page = usePage()
+const page = usePage<any>()
 
 // Watch for backend flash messages
 watch(
@@ -284,8 +284,8 @@ const deleteProject = (id: number) => {
                 </Dialog>
             </div>
 
-            <div v-if="projects.length > 0" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                <Card v-for="project in projects" :key="project.id">
+            <div v-if="localProjects.length > 0" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <Card v-for="project in localProjects" :key="project.id">
                     <CardHeader>
                         <div class="flex items-start justify-between">
                             <div class="flex items-center gap-2">
@@ -300,7 +300,7 @@ const deleteProject = (id: number) => {
                             </div>
 
                             <div class="flex items-center gap-2">
-                                <Badge variant="outline " class="h-8 min-w-8 rounded-full px-1 font-semibold text-1xl font-mono tabular-nums">
+                                <Badge variant="outline" class="h-8 min-w-8 rounded-full px-1 font-semibold text-1xl font-mono tabular-nums">
                                     {{ projectTaskCount.find(p => p.id === project.id)?.tasks_count || 0 }}
                                 </Badge>
                             </div>
@@ -390,7 +390,7 @@ const deleteProject = (id: number) => {
             </div>
 
 
-              <div  v-if="projects.length === 0" class="border border-slate-300 rounded-lg flex flex-col items-center justify-center py-20 text-muted-foreground">
+              <div  v-if="localProjects.length === 0" class="border border-slate-300 rounded-lg flex flex-col items-center justify-center py-20 text-muted-foreground">
                 <PackageOpen class="h-12 w-12 mb-4 opacity-70" />
                   <p class="text-sm">No tasks yet</p>
                   <p class="text-xs opacity-70">Create your first task to get started</p>

@@ -33,8 +33,6 @@ import { useForm } from '@inertiajs/vue3';
 import { Checkbox } from '@/components/ui/checkbox';
 // table part
 
-import type { ColumnDef } from '@tanstack/vue-table';
-import { FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table';
 import { computed } from 'vue';
 import {
     Table,
@@ -62,11 +60,19 @@ import { toast } from 'vue-sonner';
 import { usePage } from '@inertiajs/vue3';
 import Badge from '@/components/ui/badge/Badge.vue';
 
-const props = defineProps({
-    project: Object,
-    task: Array,
-    taskCount: Number,
-});
+const props = defineProps<{
+    project: {
+        id: number;
+        name: string;
+        [key: string]: any;
+    };
+    task: {
+        data: any[];
+        links: any[];
+        [key: string]: any;
+    };
+    taskCount: number;
+}>();
 
 const paginationLinks = computed(() => {
     const links = props.task.links;
@@ -86,7 +92,7 @@ const paginationLinks = computed(() => {
     return [prev, ...visiblePages, next];
 });
 
-const page = usePage();
+const page = usePage<any>();
 
 watch(
     () => page.props.flash.success,
@@ -175,7 +181,7 @@ const editTask = () => {
     });
 };
 
-const completeTask = (taskId) => {
+const completeTask = (taskId: number) => {
     completeTaskForm.put(`/project/task/complete_task/${taskId}`, {
         preserveScroll: true,
         onSuccess: () => {

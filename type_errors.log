@@ -1,0 +1,10 @@
+
+> types:check
+> vue-tsc --noEmit
+
+resources/js/pages/Project/Index.vue(54,9): error TS18046: 'page.props.flash' is of type 'unknown'.
+resources/js/pages/Project/Index.vue(143,35): error TS2339: Property 'success' does not exist on type '{}'.
+resources/js/pages/Project/Index.vue(144,48): error TS2339: Property 'success' does not exist on type '{}'.
+resources/js/pages/Project/Index.vue(303,40): error TS2820: Type '"outline "' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'. Did you mean '"outline"'?
+resources/js/pages/Project/Index.vue(311,45): error TS2339: Property 'expanded' does not exist on type '{ id: number; name: string; description: string; color?: string | undefined; }'.
+resources/js/pages/Project/Index.vue(326,44): error TS2339: Property 'expanded' does not exist on type '{ id: number; name: string; description: string; color?: string | undefined; }'.
