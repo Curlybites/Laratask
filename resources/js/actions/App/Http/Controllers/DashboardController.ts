@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder/index'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\DashboardController::index
  * @see app/Http/Controllers/DashboardController.php:13
@@ -10,9 +10,9 @@ export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 index.definition = {
-    methods: ["get", "head"],
+    methods: ["get","head"],
     url: '/dashboard',
-} satisfies RouteDefinition<["get", "head"]>
+} satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Http\Controllers\DashboardController::index
@@ -42,41 +42,41 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     method: 'head',
 })
 
-/**
+    /**
 * @see \App\Http\Controllers\DashboardController::index
-* @see app/Http/Controllers/DashboardController.php:13
-* @route '/dashboard'
-*/
-const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: index.url(options),
-    method: 'get',
-})
+ * @see app/Http/Controllers/DashboardController.php:13
+ * @route '/dashboard'
+ */
+    const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: index.url(options),
+        method: 'get',
+    })
 
-/**
+            /**
 * @see \App\Http\Controllers\DashboardController::index
-* @see app/Http/Controllers/DashboardController.php:13
-* @route '/dashboard'
-*/
-indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: index.url(options),
-    method: 'get',
-})
-/**
+ * @see app/Http/Controllers/DashboardController.php:13
+ * @route '/dashboard'
+ */
+        indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: index.url(options),
+            method: 'get',
+        })
+            /**
 * @see \App\Http\Controllers\DashboardController::index
-* @see app/Http/Controllers/DashboardController.php:13
-* @route '/dashboard'
-*/
-indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: index.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-index.form = indexForm
+ * @see app/Http/Controllers/DashboardController.php:13
+ * @route '/dashboard'
+ */
+        indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: index.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    index.form = indexForm
 const DashboardController = { index }
 
 export default DashboardController

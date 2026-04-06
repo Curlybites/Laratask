@@ -22,8 +22,6 @@ export default defineConfig(({ mode }) => ({
         }),
 
         // ✅ ONLY run in development
-          wayfinder({
-            formVariants: true,
-        }),
+        ...(process.env.NODE_ENV === 'production' ? [] : [wayfinder()]),
     ].filter(Boolean), // important: removes false
 }));

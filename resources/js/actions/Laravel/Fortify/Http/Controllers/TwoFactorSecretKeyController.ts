@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder/index'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::show
  * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
@@ -10,9 +10,9 @@ export const show = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 show.definition = {
-    methods: ["get", "head"],
+    methods: ["get","head"],
     url: '/user/two-factor-secret-key',
-} satisfies RouteDefinition<["get", "head"]>
+} satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::show
@@ -42,41 +42,41 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     method: 'head',
 })
 
-/**
+    /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
-* @route '/user/two-factor-secret-key'
-*/
-const showForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url(options),
-    method: 'get',
-})
+ * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @route '/user/two-factor-secret-key'
+ */
+    const showForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: show.url(options),
+        method: 'get',
+    })
 
-/**
+            /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
-* @route '/user/two-factor-secret-key'
-*/
-showForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url(options),
-    method: 'get',
-})
-/**
+ * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @route '/user/two-factor-secret-key'
+ */
+        showForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: show.url(options),
+            method: 'get',
+        })
+            /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
-* @route '/user/two-factor-secret-key'
-*/
-showForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-show.form = showForm
+ * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @route '/user/two-factor-secret-key'
+ */
+        showForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: show.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    show.form = showForm
 const TwoFactorSecretKeyController = { show }
 
 export default TwoFactorSecretKeyController

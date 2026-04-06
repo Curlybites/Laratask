@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder/index'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
  * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
@@ -10,9 +10,9 @@ export const show = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 show.definition = {
-    methods: ["get", "head"],
+    methods: ["get","head"],
     url: '/user/two-factor-qr-code',
-} satisfies RouteDefinition<["get", "head"]>
+} satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
@@ -42,41 +42,41 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     method: 'head',
 })
 
-/**
+    /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
-* @route '/user/two-factor-qr-code'
-*/
-const showForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url(options),
-    method: 'get',
-})
+ * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @route '/user/two-factor-qr-code'
+ */
+    const showForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: show.url(options),
+        method: 'get',
+    })
 
-/**
+            /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
-* @route '/user/two-factor-qr-code'
-*/
-showForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url(options),
-    method: 'get',
-})
-/**
+ * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @route '/user/two-factor-qr-code'
+ */
+        showForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: show.url(options),
+            method: 'get',
+        })
+            /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
-* @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
-* @route '/user/two-factor-qr-code'
-*/
-showForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: show.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-show.form = showForm
+ * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @route '/user/two-factor-qr-code'
+ */
+        showForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: show.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    show.form = showForm
 const TwoFactorQrCodeController = { show }
 
 export default TwoFactorQrCodeController

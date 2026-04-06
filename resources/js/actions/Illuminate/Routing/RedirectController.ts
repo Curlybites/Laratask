@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder/index'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder'
 /**
 * @see \Illuminate\Routing\RedirectController::__invoke
  * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
@@ -10,9 +10,9 @@ const RedirectController980bb49ee7ae63891f1d891d2fbcf1c9 = (options?: RouteQuery
 })
 
 RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.definition = {
-    methods: ["get", "head", "post", "put", "patch", "delete", "options"],
+    methods: ["get","head","post","put","patch","delete","options"],
     url: '/',
-} satisfies RouteDefinition<["get", "head", "post", "put", "patch", "delete", "options"]>
+} satisfies RouteDefinition<["get","head","post","put","patch","delete","options"]>
 
 /**
 * @see \Illuminate\Routing\RedirectController::__invoke
@@ -87,120 +87,120 @@ RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.options = (options?: RouteQue
     method: 'options',
 })
 
-/**
+    /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/'
-*/
-const RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url(options),
-    method: 'get',
-})
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/'
+ */
+    const RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url(options),
+        method: 'get',
+    })
 
-/**
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/'
-*/
-RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url(options),
-    method: 'get',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/'
+ */
+        RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url(options),
+            method: 'get',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/'
-*/
-RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/'
+ */
+        RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/'
-*/
-RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url(options),
-    method: 'post',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/'
+ */
+        RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url(options),
+            method: 'post',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/'
-*/
-RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'PUT',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'post',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/'
+ */
+        RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PUT',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/'
-*/
-RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.patch = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'PATCH',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'post',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/'
+ */
+        RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.patch = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PATCH',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/'
-*/
-RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'DELETE',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'post',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/'
+ */
+        RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'DELETE',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/'
-*/
-RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.options = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'OPTIONS',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.form = RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/'
+ */
+        RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form.options = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'OPTIONS',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    RedirectController980bb49ee7ae63891f1d891d2fbcf1c9.form = RedirectController980bb49ee7ae63891f1d891d2fbcf1c9Form
+    /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/settings'
-*/
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/settings'
+ */
 const RedirectController4b87d2df7e3aa853f6720faea796e36c = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: RedirectController4b87d2df7e3aa853f6720faea796e36c.url(options),
     method: 'get',
 })
 
 RedirectController4b87d2df7e3aa853f6720faea796e36c.definition = {
-    methods: ["get", "head", "post", "put", "patch", "delete", "options"],
+    methods: ["get","head","post","put","patch","delete","options"],
     url: '/settings',
-} satisfies RouteDefinition<["get", "head", "post", "put", "patch", "delete", "options"]>
+} satisfies RouteDefinition<["get","head","post","put","patch","delete","options"]>
 
 /**
 * @see \Illuminate\Routing\RedirectController::__invoke
@@ -275,106 +275,106 @@ RedirectController4b87d2df7e3aa853f6720faea796e36c.options = (options?: RouteQue
     method: 'options',
 })
 
-/**
+    /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/settings'
-*/
-const RedirectController4b87d2df7e3aa853f6720faea796e36cForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url(options),
-    method: 'get',
-})
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/settings'
+ */
+    const RedirectController4b87d2df7e3aa853f6720faea796e36cForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url(options),
+        method: 'get',
+    })
 
-/**
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/settings'
-*/
-RedirectController4b87d2df7e3aa853f6720faea796e36cForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url(options),
-    method: 'get',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/settings'
+ */
+        RedirectController4b87d2df7e3aa853f6720faea796e36cForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url(options),
+            method: 'get',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/settings'
-*/
-RedirectController4b87d2df7e3aa853f6720faea796e36cForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'HEAD',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/settings'
+ */
+        RedirectController4b87d2df7e3aa853f6720faea796e36cForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/settings'
-*/
-RedirectController4b87d2df7e3aa853f6720faea796e36cForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url(options),
-    method: 'post',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/settings'
+ */
+        RedirectController4b87d2df7e3aa853f6720faea796e36cForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url(options),
+            method: 'post',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/settings'
-*/
-RedirectController4b87d2df7e3aa853f6720faea796e36cForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'PUT',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'post',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/settings'
+ */
+        RedirectController4b87d2df7e3aa853f6720faea796e36cForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PUT',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/settings'
-*/
-RedirectController4b87d2df7e3aa853f6720faea796e36cForm.patch = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'PATCH',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'post',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/settings'
+ */
+        RedirectController4b87d2df7e3aa853f6720faea796e36cForm.patch = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PATCH',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/settings'
-*/
-RedirectController4b87d2df7e3aa853f6720faea796e36cForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-    action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'DELETE',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'post',
-})
-/**
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/settings'
+ */
+        RedirectController4b87d2df7e3aa853f6720faea796e36cForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'DELETE',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+            /**
 * @see \Illuminate\Routing\RedirectController::__invoke
-* @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
-* @route '/settings'
-*/
-RedirectController4b87d2df7e3aa853f6720faea796e36cForm.options = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
-        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-            _method: 'OPTIONS',
-            ...(options?.query ?? options?.mergeQuery ?? {}),
-        }
-    }),
-    method: 'get',
-})
-
-RedirectController4b87d2df7e3aa853f6720faea796e36c.form = RedirectController4b87d2df7e3aa853f6720faea796e36cForm
+ * @see vendor/laravel/framework/src/Illuminate/Routing/RedirectController.php:19
+ * @route '/settings'
+ */
+        RedirectController4b87d2df7e3aa853f6720faea796e36cForm.options = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: RedirectController4b87d2df7e3aa853f6720faea796e36c.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'OPTIONS',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    RedirectController4b87d2df7e3aa853f6720faea796e36c.form = RedirectController4b87d2df7e3aa853f6720faea796e36cForm
 
 const RedirectController = {
     '/': RedirectController980bb49ee7ae63891f1d891d2fbcf1c9,
