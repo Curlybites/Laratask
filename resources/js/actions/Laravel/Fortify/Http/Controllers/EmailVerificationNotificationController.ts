@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder/index'
 /**
 * @see \Laravel\Fortify\Http\Controllers\EmailVerificationNotificationController::store
  * @see vendor/laravel/fortify/src/Http/Controllers/EmailVerificationNotificationController.php:19
@@ -33,27 +33,27 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     method: 'post',
 })
 
-    /**
+/**
 * @see \Laravel\Fortify\Http\Controllers\EmailVerificationNotificationController::store
- * @see vendor/laravel/fortify/src/Http/Controllers/EmailVerificationNotificationController.php:19
- * @route '/email/verification-notification'
- */
-    const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-        action: store.url(options),
-        method: 'post',
-    })
+* @see vendor/laravel/fortify/src/Http/Controllers/EmailVerificationNotificationController.php:19
+* @route '/email/verification-notification'
+*/
+const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: store.url(options),
+    method: 'post',
+})
 
-            /**
+/**
 * @see \Laravel\Fortify\Http\Controllers\EmailVerificationNotificationController::store
- * @see vendor/laravel/fortify/src/Http/Controllers/EmailVerificationNotificationController.php:19
- * @route '/email/verification-notification'
- */
-        storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-            action: store.url(options),
-            method: 'post',
-        })
-    
-    store.form = storeForm
+* @see vendor/laravel/fortify/src/Http/Controllers/EmailVerificationNotificationController.php:19
+* @route '/email/verification-notification'
+*/
+storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: store.url(options),
+    method: 'post',
+})
+
+store.form = storeForm
 const EmailVerificationNotificationController = { store }
 
 export default EmailVerificationNotificationController

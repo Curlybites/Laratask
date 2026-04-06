@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder/index'
 /**
 * @see \Inertia\Controller::__invoke
  * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
@@ -10,9 +10,9 @@ const Controller = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 Controller.definition = {
-    methods: ["get","head"],
+    methods: ["get", "head"],
     url: '/settings/appearance',
-} satisfies RouteDefinition<["get","head"]>
+} satisfies RouteDefinition<["get", "head"]>
 
 /**
 * @see \Inertia\Controller::__invoke
@@ -42,39 +42,39 @@ Controller.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     method: 'head',
 })
 
-    /**
+/**
 * @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/settings/appearance'
- */
-    const ControllerForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-        action: Controller.url(options),
-        method: 'get',
-    })
+* @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @route '/settings/appearance'
+*/
+const ControllerForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Controller.url(options),
+    method: 'get',
+})
 
-            /**
+/**
 * @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/settings/appearance'
- */
-        ControllerForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: Controller.url(options),
-            method: 'get',
-        })
-            /**
+* @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @route '/settings/appearance'
+*/
+ControllerForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Controller.url(options),
+    method: 'get',
+})
+/**
 * @see \Inertia\Controller::__invoke
- * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/settings/appearance'
- */
-        ControllerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: Controller.url({
-                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-                            _method: 'HEAD',
-                            ...(options?.query ?? options?.mergeQuery ?? {}),
-                        }
-                    }),
-            method: 'get',
-        })
-    
-    Controller.form = ControllerForm
+* @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
+* @route '/settings/appearance'
+*/
+ControllerForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: Controller.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+Controller.form = ControllerForm
 export default Controller

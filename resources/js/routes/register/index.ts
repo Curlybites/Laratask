@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder/index'
 /**
 * @see \Laravel\Fortify\Http\Controllers\RegisteredUserController::store
  * @see vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php:53
@@ -33,27 +33,27 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     method: 'post',
 })
 
-    /**
+/**
 * @see \Laravel\Fortify\Http\Controllers\RegisteredUserController::store
- * @see vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php:53
- * @route '/register'
- */
-    const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-        action: store.url(options),
-        method: 'post',
-    })
+* @see vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php:53
+* @route '/register'
+*/
+const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: store.url(options),
+    method: 'post',
+})
 
-            /**
+/**
 * @see \Laravel\Fortify\Http\Controllers\RegisteredUserController::store
- * @see vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php:53
- * @route '/register'
- */
-        storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-            action: store.url(options),
-            method: 'post',
-        })
-    
-    store.form = storeForm
+* @see vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php:53
+* @route '/register'
+*/
+storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: store.url(options),
+    method: 'post',
+})
+
+store.form = storeForm
 const register = {
     store: Object.assign(store, store),
 }
